@@ -244,6 +244,8 @@ img {
 }
 .subscribe-input:hover, .subscribe-input:focus {
     border-color: var(--main-color);
+    outline-color: var(--main-color);
+
 }
 .subscribe-text {
     font-style: normal;
@@ -746,6 +748,7 @@ img {
 
     color: var(--text-color); 
     margin-bottom: 12px;
+    margin-top: 0;
 }
 
 .form-input {
@@ -773,6 +776,7 @@ img {
 .form-input:hover, 
 .form-input:focus {
     border-color: var(--main-color);
+    outline-color: var(--main-color);
 }
 .form-input:hover + .input-icon, 
 .form-input:focus + .input-icon {
@@ -813,8 +817,16 @@ img {
     fill: var(--text-color);
     transition: fill var(--time-duration);
 }
+.checkbox-field {
+    display: flex;
+    padding-left: 10px;
+}
+.checkbox-agreement {
+    display: inline-block;
+    display: flex;
+    margin-left: 13px;
+    width: 400px;
 
-.agreement {
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -825,20 +837,39 @@ img {
 
     color: var(--icogrey-color);
 }
-.checkbox-agreement {
-    display: inline-block;
-    display: flex;
-    align-items: flex-start;
-    width: 400px;
-    margin-left: 13px;
-}
-.checkbox {
-    margin-top: 5px;
+.checkbox-agreement span {
     width: 16px;
     height: 15px;
-    color: var(--text-color);
+    border: 2px solid var(--black-color);
+    border-radius: 3px;
+    margin-right: 5px;
+    margin-top: 3px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: background-color var(--time-duration), border-color var(--time-duration), background-image var(--time-duration);
+}
+
+.check-icon {
+    fill: transparent;
+}
+
+.checkbox:checked + .checkbox-agreement span {
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+
+}
+.checkbox:checked + .checkbox-agreement .check-icon {
+    fill: var(--white-color);
+}
+
+.checkbox {
+    display: none;
     transition: fill var(--time-duration);
 }
+
 .checkbox:active, .checkbox:focus, .checkbox:hover {
     fill: var(--main-color);
 }
@@ -862,7 +893,7 @@ img {
 
     position: absolute;
     margin-bottom: 0;
-    bottom: 0;
+    bottom: 14px;
     left: 50%;
     transform: translate(-50%, -50%);
 }
